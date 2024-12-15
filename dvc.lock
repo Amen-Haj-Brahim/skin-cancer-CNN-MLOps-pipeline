@@ -1,0 +1,46 @@
+schema: '2.0'
+stages:
+  1-cdvenv:
+    cmd: cd winvenv/Scripts/
+    deps:
+    - path: winvenv/Scripts/
+      hash: md5
+      md5: 1185c20f78ada17cc9f5bcfef041aef1.dir
+      size: 4550596
+      nfiles: 49
+  1-activate_venv:
+    cmd: activate
+  1-data_preparation:
+    cmd: python3 src/data/DataPreparation.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: 697739b3f979458fd78cdbc55cf733f9
+      size: 238
+      isexec: true
+    - path: src/data/DataPreparation.py
+      hash: md5
+      md5: 6a67342b158cc064e61cdbfa696c7070
+      size: 2563
+      isexec: true
+  1-data_update:
+    cmd: python3 src/data/DataUpdate.py
+    deps:
+    - path: src/data/DataUpdate.py
+      hash: md5
+      md5: 82cf903256b222c92bd6b7da92e61a28
+      size: 612
+      isexec: true
+  2-model_init:
+    cmd: python3 src/model/Model.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: 697739b3f979458fd78cdbc55cf733f9
+      size: 238
+      isexec: true
+    - path: src/model/Model.py
+      hash: md5
+      md5: 692a2430e96db9ae7a07643726cc5295
+      size: 995
+      isexec: true
