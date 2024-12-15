@@ -20,11 +20,11 @@ def main():
         config=yaml.safe_load(f)
         print(config)
         
-    num_classes,class_names,training_set,test_set=DataPreparation(config["rescale"],config["shear_range"],config["zoom_range"],config["horizontal_flip"],config["batch_size_Data_Generator"])
+    num_classes,class_names,training_set,test_set=DataPreparation()
     
     model=Model_init(num_classes)
     
-    hist=Train(model,training_set,test_set,config["batch_size"],config["optimizer"],config["epochs"],config["lr"])
+    hist=Train(model,training_set,test_set,)
     
     ModelValidation(hist,model,test_set,training_set)
         

@@ -5,3 +5,4 @@ src/model/__pycache__
 base_melanome_CNN/
 original_dataset
 augmented_dataset
+/winvenv

@@ -1,0 +1,30 @@
+stages:
+  data_preparation:
+    cmd: python3 src/data/DataPreparation.py
+    deps:
+    - src/data/DataPreparation.py
+    - config.yaml
+
+  data_update:
+    cmd: python3 src/data/DataUpdate.py
+    deps:
+    - src/data/DataUpdate.py
+
+  model_init:
+    cmd: python3 src/model/Model.py
+    deps:
+    - src/model/Model.py
+    - config.yaml
+
+# model_training:
+#   cmd: python3 src/model/ModelTraining.py
+#   deps:
+#   - src/model/ModelTraining.py
+# model_validation:
+#   cmd: python3 src/model/ModelValidation.py
+#   deps:
+#   - src/model/ModelValidation.py
+# model_testing:
+#  cmd: python3 src/test/ModelTesting.py
+#  deps:
+#  - src/test/ModelTesting.py

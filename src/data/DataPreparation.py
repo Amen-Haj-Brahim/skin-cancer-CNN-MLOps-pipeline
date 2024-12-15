@@ -1,8 +1,15 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 import shutil
-
-def DataPreparation(rescale,shear_range,zoom_range,horizontal_flip,batch_size_Data_Generator):
+import yaml
+def DataPreparation():
+    
+    with open("config.yaml") as f:
+        config=yaml.safe_load(f)
+        print(config)
+    
+    shear_range,zoom_range,horizontal_flip,batch_size_Data_Generator=config["shear_range"],config["zoom_range"],config["horizontal_flip"],config["batch_size_Data_Generator"]
+    
     train_datagen = ImageDataGenerator(rescale = 1./255,
                                     shear_range = shear_range,
                                     zoom_range = zoom_range,
@@ -40,4 +47,7 @@ def DataPreparation(rescale,shear_range,zoom_range,horizontal_flip,batch_size_Da
         next(test_genrator)
             
     return num_classes , class_names,training_set,test_set
+
+if __name__ == "__main__":
+    num_classes,class_names,training_set,test_set=DataPreparation()
     

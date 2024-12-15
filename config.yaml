@@ -1,4 +1,6 @@
 # Data Preprocessing
+data_version: ver1
+experiment_name: exp1
 rescale: 1./255
 shear_range: 0.3
 zoom_range: 0.3
