@@ -1,6 +1,6 @@
 outs:
-- md5: d76cafb043a998887f231bad55afb5f2.dir
-  size: 35996290
-  nfiles: 4544
+- md5: f62dd0275b8e2eae9897db4c5c1e3a09.dir
+  size: 9915409
+  nfiles: 1251
   hash: md5
   path: augmented_dataset
